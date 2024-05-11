@@ -1,0 +1,43 @@
+<?php /* Usamos la vista app como plantilla */ ?>
+<?php $_shouldextend[1]=1; ?>
+
+<?php /* Sección aporta el título de la página */ ?>
+<?php $this->startSection('title', 'Formulario Crear'); ?>
+
+<?php $this->startSection('usermenu'); ?>
+
+<?php /* Sección muestra el formulario de crear usuario */ ?>
+<?php $this->startSection('content'); ?>
+<div class="container col-md-4">
+ <form method="POST" action="index.php" id='formcrea'>
+ <div class="mb-3 row">                            
+ <label for="inputNombre" class="col-sm-2 col-form-label">Nombre </label>
+ <div class="col-sm-10">
+ <input id="nombre" type="text"
+ class="form-control col-sm-10" placeholder="Nombre" name="nombre">
+ </div>
+ </div>
+ <div class="mb-3 row">
+ <label for="pwd" class="col-sm-2 col-form-label">Clave </label>
+ <div class="col-sm-10">
+ <input type="password"
+ class="form-control col-sm-10" id="pwd" placeholder="Clave" name="pwd">
+ </div>        
+ </div>
+ <div class="mb-3 row">
+ <label for="email" class="col-sm-2 col-form-label">Email </label>
+ <div class="col-sm-10">
+ <input type="email"
+ class="form-control col-sm-10" id="email" placeholder="email" name="email">
+ </div>        
+ </div>
+ <div class="mb-3">
+ <div class="col-md-8 col-md-offset-4">
+ <input type="submit" class="btn btn-primary" name="btncrear" value="Crear">
+ </div>
+ </div>
+ </form>
+</div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('app'); } ?>

@@ -1,0 +1,56 @@
+<?php /* Usamos la vista app como plantilla */ ?>
+<?php $_shouldextend[1]=1; ?>
+
+<?php /* Sección aporta el título de la página */ ?>
+<?php $this->startSection('title', 'Formulario login'); ?>
+
+<?php /* Sección para el autoregistro de usuarios */ ?>
+<?php $this->startSection('navbar'); ?>
+<li class='nav-item'>
+ <a class='nav-link' aria-current='page' href='index.php?botonproclogin'>Volver</a>
+</li>
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('usermenu'); ?>
+<?php $this->stopSection(); ?>
+
+<?php /* Sección muestra el formulario de login del usuario */ ?>
+<?php $this->startSection('content'); ?>
+<div class="container col-md-6">
+ <div>
+ <?php if(isset($error)): ?> 
+ <div class="alert alert-danger" role="alert">ACCESO DENEGADO</div>
+ <?php endif; ?>
+ <h2 class="text-center">Administración</h2>
+ <div>
+ <form method="POST" action="index.php" id='formlogin'>
+ <div class="mb-3 row">                            
+ <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+ <div class="col-sm-10">
+ <input id="nombre" type="text"
+ class="form-control col-sm-10" placeholder="" name="nombre">
+ </div>
+ </div>
+ <div class="mb-3 row">
+ <label for="pwd" class="col-sm-2 col-form-label">Password</label>
+ <div class="col-sm-10">
+ <input type="password"
+ class="form-control col-sm-10" id="pwd" placeholder="" name="pwd">
+ </div>        
+ </div>
+ <div class="mb-3">
+ <div class="col-md-8 col-md-offset-4">
+ <input type="submit" class="btn btn-dark" name="botonprocloginadmin" id="botonprocloginadmin" value="Login">
+ </div>
+ 
+ 
+ </div>
+ 
+ </form>
+ </div>
+ </div>
+</div>
+<?php $this->stopSection(); ?>
+
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('app'); } ?>

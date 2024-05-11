@@ -1,0 +1,85 @@
+<?php /* Usamos la vista app como plantilla */ ?>
+<?php $_shouldextend[1]=1; ?>
+
+<?php /* Sección aporta el título de la página */ ?>
+<?php $this->startSection('title', 'Formulario registro'); ?>
+
+<?php /* Sección para volver al login */ ?>
+<?php $this->startSection('navbar'); ?>
+<li class='nav-item'>
+ <a class='nav-link' aria-current='page' href='index.php?botonproclogin'>Volver</a>
+</li>
+
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('usermenu'); ?>
+<?php $this->stopSection(); ?>
+
+<?php /* Sección muestra el formulario de registro del usuario */ ?>
+<?php $this->startSection('content'); ?>
+<div class='container col-md-6'>
+ <div>
+ <?php if(isset($errores)): ?>
+ <div class='alert alert-danger' role='alert'>Error en el registro</div>
+ <?php endif; ?>
+
+ <h2 class='text-center'>Registro</h2>
+
+ <div>
+ <form action="index.php" method='POST' id='formregistrousuario' name="formregistrousuario">
+ <div class="mb-3 row">
+ <label for='nombre' class="col-sm-2 col-form-label">Nombre</label>
+ <div>
+ <input id="nombre" type="text" class='form-control col-sm-10'
+ value="<?php echo \htmlentities(isset($nombre)? $nombre: ''??'', ENT_QUOTES, 'UTF-8', false); ?>" placeholder="Introduce nombre" name="nombre">
+
+ <?php if(!empty($nombreError)): ?>
+ <div class="alert alert-danger" role="alert">
+ <?php echo \htmlentities($nombreError??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </div>
+ 
+ <?php endif; ?>
+ </div>
+ </div>
+ <div class="mb-3 row">
+ <label for='pwd' class="col-sm-2 col-form-label">Contraseña</label>
+ <div>
+ <input id="pwd" type="password" class='form-control col-sm-10'
+ value="<?php echo \htmlentities(isset($pwd)? $pwd: ''??'', ENT_QUOTES, 'UTF-8', false); ?>" placeholder="Introduce contraseña" name="pwd">
+ <?php if(!empty($pwdError)): ?>
+ <div class="alert alert-danger" role="alert">
+ <?php echo \htmlentities($pwdError??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </div>
+ <?php endif; ?>
+ </div>
+ </div>
+ <div class="mb-3 row">
+ <label for='email' class="col-sm-2 col-form-label">e-mail</label>
+ <div>
+ <input id="email" type="text" class='form-control col-sm-10'
+ value="<?php echo \htmlentities(isset($email)? $email: ''??'', ENT_QUOTES, 'UTF-8', false); ?>" placeholder="Introduce email" name="email">
+ <?php if(!empty($emailError)): ?>
+ <div class="alert alert-danger" role="alert">
+ <?php echo \htmlentities($emailError??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ </div>
+ <?php endif; ?>
+ </div>
+ </div>
+
+ <div class="mb-3">
+ <div class="col-md-8 col-md-offset-4">
+ <input type="submit" class="btn btn-primary" name="botonRegistrar" value="Crear">
+ </div>
+
+ </div>
+ </form>
+ </div>
+
+ </div>
+</div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('app'); } ?>
