@@ -1,0 +1,21 @@
+REST
+
+comprobar hangman constructor
+juego-php cambiar
+archivo convertirJSON y ejecutarlo para crearlo
+en .env crear la ruta nueva
+crear fichero AlmacenPalabrasRest
+
+ADMIN
+
+crear en clase usuario 
+	-el atributo $rol
+	-funcion esAdmin (si no funciona nombre ->'admin')
+crear en usuarioDAO
+	-function creaRol	
+crear clase Admin extends Usuario¿?
+	-
+
+
+
+
